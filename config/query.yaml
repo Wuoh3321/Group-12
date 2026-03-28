@@ -1,0 +1,19 @@
+version: "0.1"
+
+query:
+  object:
+    - "large language model"
+    - "LLM"
+    - "GPT"
+
+  method:
+    - "deep learning"
+    - "transformer"
+
+  context:
+    - "AI"
+    - "artificial intelligence"
+
+  constraint:
+    time_window: [2020, 2025]
+    doc_type: ["article", "review"]
