@@ -10,7 +10,7 @@
 ---
 
 ## 🎯 研究方向
-本项目基于文献计量学（Bibliometrics）方法，对人工智能（Artificial Intelligence）领域的研究热点与发展趋势进行分析。
+本项目基于文献计量学（Bibliometrics）方法，对人工智能（Artificial Intelligence）在教育方面的作用以及影响进行分析。
 
 通过对相关文献数据的统计与可视化分析，探索该领域的研究前沿、热点主题以及演化趋势。
 
