@@ -1,0 +1,158 @@
+artificial intelligence
+explainability
+integrability
+healthcare
+artificial intelligence
+attitude
+health care professional
+digital
+retrieval-augmented generation (rag)
+large language models (llms)
+artificial intelligence
+certification
+digitalization
+future
+healthcare
+risk
+safety
+external validation
+uncertainty quantification
+uncertainty evaluation
+general data protection regulation
+medical devices regulation
+ai act
+attribution
+xcv
+artificial intelligence
+explainability
+medical
+artificial intelligence
+prompt engineering
+medical ai
+generated
+contrastive learning
+self-supervised learning
+medical ai
+artificial
+medical service
+medical diagnostic imaging
+cognition
+accuracy
+medical artificial intelligence
+regulation
+risk stratification
+data
+artificial intelligence
+medical ai
+topic modeling
+keyword network
+ethical
+governance
+infrastructure
+lmic
+low-resource setting
+federated learning
+healthcare ethic
+privacy preservation
+algorithmic
+algorithmic accountability
+data protection and privacy
+ethical
+artificial intelligence
+artificial intelligence
+medical education
+ethic
+challenges and
+survey
+dataset
+benchmark
+large language model
+data provenance
+artificial intelligence
+medical ai
+ai ethic
+digital health
+artificial intelligence
+artificial intelligence
+sepsis management
+precision medicine
+early
+surgery
+visualization
+robot
+real-time system
+feature extraction
+artificial intelligence
+perceived trustworthine
+trust
+machine
+artificial intelligence
+large language model
+nephrology
+kidney
+artificial intelligence (ai)
+class imbalance
+forest plot
+medical
+machine learning
+nephropathology
+convolutional neural net
+large
+climate change
+digital health technologie
+health impact
+healthcare
+foundation model
+radiology artificial intelligence
+vision-language
+medical ai education
+convergence curriculum
+modular program design
+artificial intelligence
+disease
+skin
+data model
+dermatology
+artificial intelligence
+machine learning
+medical studie
+guideline
+ethics committee
+artificial intelligence
+algorithmic bia
+data
+artificial intelligence
+causal inference
+data analysi
+machine
+children
+adolescent
+machine learning
+data science
+literacy
+artificial intelligence
+machine learning
+deep learning
+pediatric
+artificial intelligence (ai)
+real-world evidence (rwe)
+healthcare
+artificial intelligence
+patient
+barrier
+facilitator
+intervention
+medical biotechnology
+biosensor
+companion diagnostic
+artificial
+telemedicine
+telecommunication
+internet of medical things (iomt)
+metabolic-dysfunction-associated steatotic liver disease
+liver
+therapeutic ai
+digital therapeutics (dtx)
+elsi
+eu ai act
+japan
