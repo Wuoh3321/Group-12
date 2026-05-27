@@ -17,3 +17,24 @@ query:
   constraint:
     time_window: [2020, 2025]
     doc_type: ["article", "review"]
+
+
+version: "0.2"
+
+query:
+  object:
+    - "AI healthcare"
+    - "medical AI"
+
+  method:
+    - "deep learning"
+    - "transformer"
+
+  context:
+    - "healthcare"
+    - "medicine"
+    - "clinical"
+
+  constraint:
+    time_window: [2025, 2026]
+    doc_type: ["Review Article"]
