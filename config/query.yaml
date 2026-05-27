@@ -23,12 +23,8 @@ version: "0.2"
 
 query:
   object:
-    - "AI healthcare"
+    - "healthcare ai"
     - "medical AI"
-
-  method:
-    - "deep learning"
-    - "transformer"
 
   context:
     - "healthcare"
