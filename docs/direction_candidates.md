@@ -7,7 +7,7 @@
 - 检索式：TS=("artificial intelligence" OR "machine learning" OR "deep learning" OR "neural network" OR "large language model" OR "LLM" OR "generative AI" OR "GenAI") 
 
 ### 方向2：人工智能在医疗中的应用
-- 关键词：AI healthcare, medical AI
+- 关键词：healthcare ai, medical AI
 - 检索式：TS=("healthcare ai" OR "medical AI")
 ---
 
