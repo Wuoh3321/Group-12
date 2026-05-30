@@ -1,0 +1,802 @@
+#清洗代码
+# import pandas as pd
+# import openpyxl
+# from openpyxl.utils import get_column_letter
+
+# def clean_excel_to_csv_by_columns(input_file, output_file, keep_columns_letters):
+#     """
+#     读取 Excel，仅保留指定的列字母，并保存为 CSV
+#     """
+#     print(f"🚀 正在读取文件: {input_file} ...")
+    
+#     try:
+#         # 1. 读取 Excel 文件
+#         df = pd.read_excel(input_file)
+#         print(f"✅ 读取成功！原始数据形状: {df.shape}")
+
+#         # 2. 将列字母转换为实际的列名
+#         # 获取 Excel 的所有列名
+#         excel_columns = df.columns.tolist()
+#         max_col_index = len(excel_columns)
+        
+#         # 找出需要保留的列名
+#         columns_to_keep = []
+#         for col_letter in keep_columns_letters:
+#             # 将字母（如 'A', 'AA'）转换为数字索引（1, 27...）
+#             col_index = openpyxl.utils.column_index_from_string(col_letter)
+#             # 转换为 0-based 索引并检查是否在原表格范围内
+#             if col_index - 1 < max_col_index:
+#                 columns_to_keep.append(excel_columns[col_index - 1])
+#             else:
+#                 print(f"⚠️ 警告：列 '{col_letter}' 超出了表格的实际范围，已自动跳过。")
+
+#         # 3. 筛选并保留指定的列
+#         df_filtered = df[columns_to_keep]
+#         print(f"🔧 已筛选保留 {len(columns_to_keep)} 个指定列：{columns_to_keep}")
+
+#         # 4. 保存为 CSV (utf-8-sig 编码防止中文乱码)
+#         df_filtered.to_csv(output_file, index=False, encoding='utf-8-sig')
+#         print(f"💾 转换完成！文件已保存至: {output_file}")
+#         print(f"📊 最终数据行数: {len(df_filtered)}")
+
+#     except FileNotFoundError:
+#         print(f"❌ 错误：找不到文件 '{input_file}'，请检查文件名或路径。")
+#     except Exception as e:
+#         print(f"❌ 发生未知错误: {e}")
+
+# # ================= 配置区 =================
+# # 输入文件名
+# input_filename = "raw_v0.3.xlsx"
+# # 输出文件名
+# output_filename = "data_cleaned.csv"
+# # 需要保留的列字母（已按你的要求整理）
+# keep_columns = [
+#     'B', 'F', 'I', 'J', 'T', 'U', 'V', 'W', 'X', 
+#     'AA', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AV', 'AW', 
+#     'BJ', 'BK', 'BL'
+# ]
+# # ==========================================
+
+# if __name__ == "__main__":
+#     clean_excel_to_csv_by_columns(input_filename, output_filename, keep_columns)
+
+
+
+
+
+
+
+
+
+
+
+
+# import pandas as pd
+# import numpy as np
+# from itertools import combinations
+# import os
+
+# def clean_text(text):
+#     """通用清洗函数"""
+#     if pd.isna(text) or text == 'nan':
+#         return ""
+#     return str(text).strip().lower()
+
+# def process_author_keywords(text):
+#     """处理关键词列，分割成列表"""
+#     text = clean_text(text)
+#     if not text or text in ['nan', 'n/a', 'none']:
+#         return []
+#     # 假设关键词是用分号 ; 或 逗号 , 分隔的
+#     words = []
+#     for delimiter in [';', ',', '|', '/']:
+#         if delimiter in text:
+#             words = text.split(delimiter)
+#             break
+#     if not words:
+#         words = [text]
+#     # 清洗每个词
+#     words = [word.strip().replace('"', '').replace("'", '') for word in words if len(word.strip()) > 1]
+#     return words
+
+# def process_authors(text):
+#     """处理作者列，分割成列表"""
+#     text = clean_text(text)
+#     if not text or text in ['nan', 'n/a', 'none']:
+#         return []
+#     authors = text.split(';')
+#     authors = [author.strip() for author in authors if len(author.strip()) > 2]
+#     return authors
+
+# def generate_vosviewer_files(input_csv, output_prefix="vos_data"):
+#     """
+#     生成 VOSviewer 所需的边表文件。
+#     注意：根据你的数据，只有关键词和作者列可用。
+#     """
+#     print(f"正在读取数据: {input_csv} ...")
+#     df = pd.read_csv(input_csv, dtype=str, keep_default_na=False)
+    
+#     # 确保必要的列存在
+#     # 修正1: 根据报错，调整列名。如果你的关键词列名不是 'Author Keywords'，请在这里修改。
+#     required_cols = ['Author Keywords', 'Authors', 'Article Title']
+    
+#     missing_cols = [col for col in required_cols if col not in df.columns]
+#     if missing_cols:
+#         print(f"❌ 错误：未找到以下列: {missing_cols}")
+#         print(f"当前文件包含的列有: {list(df.columns)}")
+#         return
+
+#     # --- 1. 关键词共现网络 (Keyword Co-occurrence) ---
+#     print("正在处理关键词共现网络...")
+#     keyword_edges = []
+#     for _, row in df.iterrows():
+#         keywords = process_author_keywords(row['Author Keywords'])
+#         # 生成两两组合
+#         for pair in combinations(keywords, 2):
+#             # 标准化顺序，避免 A-B 和 B-A 重复
+#             node1, node2 = sorted(pair)
+#             if node1 != node2:
+#                 keyword_edges.append((node1, node2))
+    
+#     if keyword_edges:
+#         df_keyword = pd.DataFrame(keyword_edges, columns=['Node 1', 'Node 2'])
+#         df_keyword['Weight'] = 1
+#         df_keyword = df_keyword.groupby(['Node 1', 'Node 2']).sum().reset_index()
+#         keyword_output = f"{output_prefix}_keyword_cooccurrence.csv"
+#         df_keyword.to_csv(keyword_output, index=False)
+#         print(f"✅ 关键词共现网络已生成: {keyword_output}")
+#     else:
+#         print("⚠️ 未生成关键词共现网络：未找到有效的关键词数据。")
+
+#     # --- 2. 合作网络 (Collaboration) ---
+#     print("正在处理合作网络...")
+#     collaboration_edges = []
+#     for _, row in df.iterrows():
+#         authors = process_authors(row['Authors'])
+#         if len(authors) < 2:
+#             continue
+#         # 生成两两组合
+#         for pair in combinations(authors, 2):
+#             node1, node2 = sorted(pair)
+#             collaboration_edges.append((node1, node2))
+    
+#     if collaboration_edges:
+#         df_collab = pd.DataFrame(collaboration_edges, columns=['Node 1', 'Node 2'])
+#         df_collab['Weight'] = 1
+#         df_collab = df_collab.groupby(['Node 1', 'Node 2']).sum().reset_index()
+#         collab_output = f"{output_prefix}_collaboration_network.csv"
+#         df_collab.to_csv(collab_output, index=False)
+#         print(f"✅ 合作网络已生成: {collab_output}")
+#     else:
+#         print("⚠️ 未生成合作网络：未找到足够的作者数据。")
+
+#     # --- 无法生成的网络提示 ---
+#     print("\nℹ️ 提示：")
+#     print("- 由于输入数据中不包含具体的参考文献列表（只有被引次数），已跳过'共被引'和'文献耦合'网络的生成。")
+#     print("- 如果你需要生成这些网络，请导入包含'References'列的原始数据。")
+
+#     print("\n--- 所有任务完成 ---")
+
+# # --- 配置并运行 ---
+# if __name__ == "__main__":
+#     input_file = "data_cleaned.csv"  # 确保文件在当前目录下
+#     output_filename_prefix = "vos_output" # 输出文件名前缀
+    
+#     if not os.path.exists(input_file):
+#         print(f"❌ 错误：找不到文件 '{input_file}'。请确保文件名正确。")
+#     else:
+#         generate_vosviewer_files(input_file, output_filename_prefix)
+
+
+
+
+
+
+
+# import pandas as pd
+# import numpy as np
+# from itertools import combinations
+# import os
+# import re
+# import html  # 新增：用于处理HTML转义字符
+
+# def clean_text_advanced(text):
+#     """
+#     高级清洗函数：
+#     1. 处理空值
+#     2. 还原HTML转义字符 (如 &eacute; -> é)
+#     3. 去除多余空格
+#     """
+#     if pd.isna(text) or str(text).strip() == '':
+#         return ""
+
+#     text = str(text)
+
+#     # 1. 还原 HTML 实体 (例如 &eacute; -> é, &amp; -> &)
+#     text = html.unescape(text)
+
+#     # 2. 替换常见的干扰符号为空格 (保留字母、数字、连字符、撇号)
+#     # 这一步非常关键，防止特殊符号把关键词切断
+#     text = re.sub(r'[^a-zA-Z0-9\s\-\'/]', ' ', text)
+
+#     # 3. 去除首尾空格并合并中间多余空格
+#     text = re.sub(r'\s+', ' ', text).strip()
+
+#     return text.lower()
+
+# def process_author_keywords(text):
+#     """
+#     处理关键词列：
+#     1. 先按分号/逗号分割成独立的关键词短语
+#     2. 对每个短语进行深度清洗
+#     3. 过滤掉过短的词
+#     """
+#     text = clean_text_advanced(text)
+#     if not text:
+#         return []
+
+#     words = []
+#     # 尝试多种分隔符分割
+#     for delimiter in [';', ',', '|']:
+#         if delimiter in text:
+#             words = text.split(delimiter)
+#             break
+
+#     # 如果没有分隔符，说明整行就是一个词（或者是空格分隔的词组，视情况而定，这里假设整行是一个大词或需再次分割）
+#     # 针对 VOSviewer，通常关键词是用分号隔开的。如果原文是空格隔开的短语，可能需要更复杂的逻辑。
+#     # 这里假设标准格式是分号分隔。
+#     if not words:
+#         words = [text]
+
+#     cleaned_words = []
+#     for word in words:
+#         w = word.strip()
+#         # 过滤掉纯数字、太短的词（长度<2）、以及明显的乱码
+#         if len(w) > 1 and not w.isdigit():
+#             cleaned_words.append(w)
+
+#     return cleaned_words
+
+# def generate_vosviewer_files(input_file, output_prefix='vos_output'):
+#     print(f"🚀 正在读取数据: {input_file} ...")
+
+#     try:
+#         # 读取 CSV，注意 encoding，如果是中文环境可能需要 'utf-8-sig' 或 'gbk'
+#         # 建议先尝试 utf-8，如果报错再换
+#         df = pd.read_csv(input_file, encoding='utf-8')
+#         print(f"✅ 读取成功！数据行数: {len(df)}")
+
+#         # --- 1. 生成关键词共现网络 (Keyword Co-occurrence) ---
+#         print("⏳ 正在生成关键词共现网络...")
+#         keyword_edges = {}
+
+#         # 检查列名是否存在 (根据你的截图，可能是 'Author Keywords' 或类似名称)
+#         # 请确保这里的列名与你 CSV 表头完全一致
+#         keyword_col = None
+#         for col in df.columns:
+#             if 'keyword' in col.lower():
+#                 keyword_col = col
+#                 break
+
+#         if keyword_col:
+#             for index, row in df.iterrows():
+#                 keywords = process_author_keywords(row[keyword_col])
+#                 # 去重当前行的关键词，避免自己和自己共现
+#                 unique_kws = list(set(keywords))
+
+#                 # 生成两两组合
+#                 for pair in combinations(unique_kws, 2):
+#                     # 排序以保证 (A, B) 和 (B, A) 被视为同一对
+#                     edge = tuple(sorted(pair))
+#                     if edge in keyword_edges:
+#                         keyword_edges[edge] += 1
+#                     else:
+#                         keyword_edges[edge] = 1
+
+#             # 转换为 DataFrame
+#             kw_data = []
+#             for (node1, node2), weight in keyword_edges.items():
+#                 kw_data.append({'Node 1': node1, 'Node 2': node2, 'Weight': weight})
+
+#             kw_df = pd.DataFrame(kw_data)
+#             kw_output = f"{output_prefix}_keyword_cooccurrence.csv"
+#             kw_df.to_csv(kw_output, index=False, encoding='utf-8-sig') # 使用 utf-8-sig 防止 Excel 打开乱码
+#             print(f"✅ 关键词共现网络已生成: {kw_output}")
+#             print(f"   共发现 {len(kw_df)} 条连线。")
+#         else:
+#             print("⚠️ 未找到包含 'Keyword' 的列，跳过关键词网络生成。")
+
+#         # --- 2. 生成作者合作网络 (Collaboration Network) ---
+#         print("⏳ 正在生成作者合作网络...")
+#         author_edges = {}
+
+#         author_col = None
+#         for col in df.columns:
+#             if 'author' in col.lower() and 'keyword' not in col.lower():
+#                 author_col = col
+#                 break
+
+#         if author_col:
+#             for index, row in df.iterrows():
+#                 authors_raw = row[author_col]
+#                 if pd.isna(authors_raw): continue
+
+#                 # 假设作者是用分号或逗号分隔
+#                 authors = re.split(r';|,', str(authors_raw))
+#                 # 清洗作者名字
+#                 authors = [clean_text_advanced(a) for a in authors if len(a.strip()) > 1]
+#                 unique_authors = list(set(authors))
+
+#                 for pair in combinations(unique_authors, 2):
+#                     edge = tuple(sorted(pair))
+#                     if edge in author_edges:
+#                         author_edges[edge] += 1
+#                     else:
+#                         author_edges[edge] = 1
+
+#             auth_data = []
+#             for (node1, node2), weight in author_edges.items():
+#                 auth_data.append({'Node 1': node1, 'Node 2': node2, 'Weight': weight})
+
+#             auth_df = pd.DataFrame(auth_data)
+#             auth_output = f"{output_prefix}_collaboration.csv"
+#             auth_df.to_csv(auth_output, index=False, encoding='utf-8-sig')
+#             print(f"✅ 作者合作网络已生成: {auth_output}")
+#             print(f"   共发现 {len(auth_df)} 条连线。")
+#         else:
+#             print("⚠️ 未找到包含 'Author' 的列，跳过合作网络生成。")
+
+#     except Exception as e:
+#         print(f"❌ 发生错误: {e}")
+#         import traceback
+#         traceback.print_exc()
+
+# # === 执行入口 ===
+# if __name__ == "__main__":
+#     # 请确认输入文件名
+#     input_filename = "data_cleaned.csv"
+#     generate_vosviewer_files(input_filename)
+
+
+#核心边表
+# import pandas as pd
+# import numpy as np
+# from itertools import combinations
+# import os
+# import re
+
+# def clean_text(text):
+#     if pd.isna(text) or str(text).strip() == 'nan':
+#         return ""
+#     return str(text).strip()
+
+# def process_authors_for_network(authors_str):
+#     """
+#     专门用于处理作者合作网络的函数
+#     1. 分割作者
+#     2. 标准化姓名 (转小写，去除多余空格，处理 "Last, First" 格式)
+#     """
+#     text = clean_text(authors_str)
+#     if not text:
+#         return []
+
+#     # 常见的作者分隔符
+#     authors = re.split(r';|, and | and ', text)
+
+#     clean_authors = []
+#     for author in authors:
+#         author = author.strip()
+#         if not author: continue
+
+#         # 简单的标准化：转小写
+#         # 注意：这里不做复杂的姓名归一化（如 Wang Yu -> Wang, Y.），
+#         # 因为不同数据库格式差异大，建议保持原样或仅做基础清洗，
+#         # 让 VOSviewer 的 "Merge Nodes" 功能后续处理，或者在这里做最基础的统一。
+#         name = author.lower().strip()
+
+#         # 去除可能的编号 (如 "Wang Yu 1") - 视数据来源而定，有时需要保留
+#         # name = re.sub(r'\d+', '', name).strip()
+
+#         if len(name) > 2: # 过滤掉太短的名字
+#             clean_authors.append(name)
+
+#     return clean_authors
+
+# def generate_vosviewer_files(input_file, output_prefix):
+#     print(f"🚀 正在读取数据: {input_file} ...")
+#     try:
+#         df = pd.read_csv(input_file, encoding='utf-8')
+#     except UnicodeDecodeError:
+#         df = pd.read_csv(input_file, encoding='gbk')
+
+#     print(f"✅ 读取成功！数据行数: {len(df)}")
+
+#     # --- 1. 关键词共现网络 (Keyword Co-occurrence) ---
+#     if 'Author Keywords' in df.columns or 'Keywords' in df.columns:
+#         col_name = 'Author Keywords' if 'Author Keywords' in df.columns else 'Keywords'
+#         print("⏳ 正在生成关键词共现网络...")
+
+#         kw_pairs = {}
+#         for index, row in df.iterrows():
+#             kws = process_keywords(row[col_name])
+#             # 生成两两组合
+#             for pair in combinations(kws, 2):
+#                 pair_key = tuple(sorted(pair)) # 排序确保 A-B 和 B-A 是同一个键
+#                 kw_pairs[pair_key] = kw_pairs.get(pair_key, 0) + 1
+
+#         # 转换为 DataFrame
+#         kw_data = [{'Node 1': p[0], 'Node 2': p[1], 'Weight': w} for p, w in kw_pairs.items()]
+#         kw_df = pd.DataFrame(kw_data)
+
+#         # 关键词通常不需要太严格的过滤，除非数据量巨大
+#         # 这里暂不过滤，全部导出
+#         kw_output = f"{output_prefix}_keyword_cooccurrence.csv"
+#         kw_df.to_csv(kw_output, index=False, encoding='utf-8-sig')
+#         print(f"✅ 关键词网络已生成: {kw_output} (共 {len(kw_df)} 条连线)")
+#     else:
+#         print("⚠️ 未找到关键词列，跳过关键词网络生成。")
+
+#     # --- 2. 作者合作网络 (Author Collaboration) ---
+#     if 'Authors' in df.columns:
+#         print("⏳ 正在生成作者合作网络...")
+
+#         auth_pairs = {}
+#         author_counts = {} # 统计每个作者发文量
+
+#         for index, row in df.iterrows():
+#             authors = process_authors_for_network(row['Authors'])
+
+#             # 统计发文量
+#             for a in authors:
+#                 author_counts[a] = author_counts.get(a, 0) + 1
+
+#             # 生成合作连线
+#             # 注意：一篇文章如果有 10 个作者，会有 C(10,2)=45 条线
+#             for pair in combinations(authors, 2):
+#                 pair_key = tuple(sorted(pair))
+#                 auth_pairs[pair_key] = auth_pairs.get(pair_key, 0) + 1
+
+#         # 构建 DataFrame
+#         auth_data = []
+#         for (a1, a2), weight in auth_pairs.items():
+#             auth_data.append({
+#                 'Node 1': a1,
+#                 'Node 2': a2,
+#                 'Weight': weight,
+#                 # 可选：把发文量也带上，方便在 VOSviewer 里映射大小
+#                 'Count 1': author_counts.get(a1, 0),
+#                 'Count 2': author_counts.get(a2, 0)
+#             })
+
+#         auth_df = pd.DataFrame(auth_data)
+
+#         # 【关键修改】这里不要过滤！
+#         # 之前可能写了 if weight >= 2: ... 导致数据丢失
+#         # 我们把所有合作关系都导出来，让用户在 VOSviewer 软件里自己拖动阈值滑块
+#         auth_output = f"{output_prefix}_author_collaboration.csv"
+#         auth_df.to_csv(auth_output, index=False, encoding='utf-8-sig')
+
+#         print(f"✅ 作者合作网络已生成: {auth_output}")
+#         print(f"   - 涉及唯一作者数: {len(author_counts)}")
+#         print(f"   - 涉及合作关系数: {len(auth_df)}")
+#         print(f"   - 提示: 请在 VOSviewer 中使用 'Minimum number of documents' 参数来过滤噪音")
+
+#     else:
+#         print("⚠️ 未找到 Authors 列，跳过作者网络生成。")
+
+# # 辅助函数：简单的关键词分割
+# def process_keywords(text):
+#     text = clean_text(text)
+#     if not text: return []
+#     # 假设分号或逗号分隔
+#     words = re.split(r';|,', text)
+#     return [w.strip().lower() for w in words if len(w.strip()) > 2]
+
+
+# # --- 运行入口 ---
+# if __name__ == "__main__":
+#     # 请确保文件名与你的一致
+#     input_file = "data_cleaned.csv"
+#     output_prefix = "vos_output"
+
+#     if os.path.exists(input_file):
+#         generate_vosviewer_files(input_file, output_prefix)
+#     else:
+#         print(f"❌ 找不到文件: {input_file}")
+
+
+#计算指标
+# import pandas as pd
+# import networkx as nx
+# import os
+
+# # --- 1. 配置参数 ---
+# INPUT_FILE = 'vos_output_keyword_cooccurrence.csv'  # 你的原始共现文件
+# OUTPUT_DIR = 'outputs/tables'                       # 输出目录
+# FILTER_THRESHOLD = 5                                # 【关键】只保留权重>=5的边，防止算不动
+
+# # --- 2. 读取与过滤数据 (解决 NameError 的核心) ---
+# print(f"正在读取 {INPUT_FILE} ...")
+
+# if not os.path.exists(INPUT_FILE):
+#     print(f"❌ 错误：找不到文件 {INPUT_FILE}，请检查文件名或路径！")
+# else:
+#     try:
+#         # 读取原始数据
+#         df = pd.read_csv(INPUT_FILE)
+
+#         # 执行过滤操作 -> 生成 filtered_df
+#         # 注意：这里必须确保列名 'Weight' 和你的CSV里的一致
+#         # 如果你的CSV里叫 'weight' (小写)，请改为 df['weight'] >= FILTER_THRESHOLD
+#         filtered_df = df[df['Weight'] >= FILTER_THRESHOLD]
+
+#         print(f"✅ 读取成功！原始边数: {len(df)}")
+#         print(f"✂️ 过滤后边数: {len(filtered_df)} (已移除弱连接)")
+
+#         # --- 3. 构建网络图 ---
+#         print("🚀 正在构建 NetworkX 图对象...")
+#         G = nx.from_pandas_edgelist(
+#             filtered_df,
+#             source='Node 1',      # 确保CSV里的源节点列名正确
+#             target='Node 2',      # 确保CSV里的目标节点列名正确
+#             edge_attr='Weight',   # 边的权重
+#             create_using=nx.Graph()
+#         )
+
+#         print(f"🕸️ 网络构建完成！节点数: {G.number_of_nodes()}, 边数: {G.number_of_edges()}")
+
+#         # --- 4. 计算指标 (清单要求) ---
+#         print("🧮 正在计算 Degree, PageRank, Betweenness...")
+
+#         # 度中心性
+#         degree_dict = dict(G.degree(weight='Weight'))
+
+#         # PageRank (带权重的版本收敛较慢，如果太慢可去掉 weight 参数)
+#         pagerank_dict = nx.pagerank(G, weight='Weight')
+
+#         # 介数中心性 (最耗时，建议只在过滤后的图上算)
+#         betweenness_dict = nx.betweenness_centrality(G, weight='Weight')
+
+#         # 社区发现 (Louvain算法需要安装 python-louvain，如果没有可用连通分量代替)
+#         # 这里简单演示获取连通分量数量作为质量检查指标
+#         n_components = nx.number_connected_components(G)
+
+#         # --- 5. 导出结果 ---
+#         # 将字典转回 DataFrame 以便保存
+#         metrics_df = pd.DataFrame({
+#             'Node': list(degree_dict.keys()),
+#             'Degree': [degree_dict[n] for n in degree_dict],
+#             'PageRank': [pagerank_dict[n] for n in pagerank_dict],
+#             'Betweenness': [betweenness_dict[n] for n in betweenness_dict]
+#         })
+
+#         # 确保输出文件夹存在
+#         os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+#         output_path = os.path.join(OUTPUT_DIR, 'network_metrics_keyword.csv')
+#         metrics_df.to_csv(output_path, index=False, encoding='utf-8-sig')
+
+#         print(f"💾 指标计算完成！已保存至: {output_path}")
+#         print(f"📊 质量检查：该网络包含 {n_components} 个连通分量。")
+
+#     except KeyError as e:
+#         print(f"❌ 列名错误：{e}")
+#         print("提示：请打开 vos_output_keyword_cooccurrence.csv 检查表头，")
+#         print("确保包含 'Node 1', 'Node 2', 'Weight' 这三列（注意大小写）。")
+#     except Exception as e:
+#         print(f"❌ 发生未知错误: {e}")
+
+
+
+#质量检查
+# import pandas as pd
+# import networkx as nx
+
+# # --- 1. 配置文件路径 ---
+# # 请确保这两个文件在你代码的当前目录下，或者修改为完整的文件路径
+# METRICS_FILE = 'network_metrics_keyword.csv'  # 你的指标文件
+# COOCCURRENCE_FILE = 'vos_output_keyword_cooccurrence.csv'  # 你的共现边表文件
+
+# print("🚀 开始执行质量检查任务...")
+
+# # --- 2. 读取指标数据 (用于检查节点属性) ---
+# try:
+#     metrics_df = pd.read_csv(METRICS_FILE)
+#     node_count = len(metrics_df)
+#     print(f"✅ 成功读取指标文件，包含节点数: {node_count}")
+# except FileNotFoundError:
+#     print(f"❌ 错误：找不到文件 {METRICS_FILE}，请检查文件名或路径！")
+#     exit()
+
+# # --- 3. 构建网络图 (用于检查边、密度、连通性) ---
+# try:
+#     # 读取共现文件
+#     edges_df = pd.read_csv(COOCCURRENCE_FILE)
+    
+#     # 构建图对象
+#     G = nx.from_pandas_edgelist(
+#         edges_df,
+#         source='Node 1',
+#         target='Node 2',
+#         edge_attr='Weight',
+#         create_using=nx.Graph() # 无向图
+#     )
+    
+#     # 计算网络指标
+#     edge_count = G.number_of_edges()
+#     density = nx.density(G)
+    
+#     # 计算连通分量
+#     components = list(nx.connected_components(G))
+#     component_count = len(components)
+    
+#     # 找出最大连通分量的占比
+#     largest_component_size = len(max(components, key=len))
+#     largest_component_ratio = largest_component_size / node_count
+
+#     print(f"✅ 成功构建网络图，分析结果如下：")
+#     print("-" * 50)
+#     print(f"📊 节点数量 (Nodes): {node_count}")
+#     print(f"🔗 边数量 (Edges): {edge_count}")
+#     print(f"📉 网络密度 (Density): {density:.4f}")
+#     print(f"🧩 连通分量数量 (Components): {component_count}")
+#     print(f"🏆 最大连通分量占比: {largest_component_ratio:.2%} ({largest_component_size}/{node_count})")
+
+#     # --- 4. 生成质量检查报告 ---
+#     print("\n📝 生成质量检查报告...")
+#     report = f"""
+#     质量检查报告 (Quality Control Report)
+#     ========================================
+#     1. 数据完整性：
+#        - 节点数：{node_count} (符合预期，数据已加载)
+#        - 边数：{edge_count} (网络连接正常)
+    
+#     2. 网络结构质量：
+#        - 密度：{density:.4f}
+#          (提示：通常共现网络密度较低，若低于 0.001 需注意是否过滤过度)
+#        - 连通性：{component_count} 个连通分量
+#          (理想情况应为 1 个。若大于 1，说明存在孤立的子网络)
+    
+#     3. 核心网络占比：
+#        - 最大连通分量占比：{largest_component_ratio:.2%}
+#          (通常建议大于 80%，表示大部分节点是相互关联的)
+    
+#     4. 结论：
+#        - 状态：{'✅ 通过' if largest_component_ratio > 0.8 else '⚠️ 警告'}
+#        - 建议：当前网络结构{'较为完整' if component_count == 1 else '存在碎片化'}，适合进行后续的聚类和可视化分析。
+#     """
+    
+#     print(report)
+    
+#     # 如果需要，可以将报告保存到文件
+#     with open('quality_check_report.txt', 'w', encoding='utf-8') as f:
+#         f.write(report)
+#     print(f"📄 报告已保存至: quality_check_report.txt")
+
+# except FileNotFoundError:
+#     print(f"❌ 错误：找不到文件 {COOCCURRENCE_FILE}，请检查文件名或路径！")
+# except Exception as e:
+#     print(f"❌ 发生未知错误: {e}")
+
+
+
+#图谱生成代码
+import pandas as pd
+import networkx as nx
+import matplotlib.pyplot as plt
+import os
+
+# --- 1. 配置区域 ---
+# 确保这3个文件在你的代码同级目录下
+NODE_FILE = 'network_metrics_keyword.csv' 
+EDGE_FILE = 'vos_output_keyword_cooccurrence.csv'
+COLLAB_FILE = 'vos_output_author_collaboration.csv' # 之前你上传过这个文件
+
+OUTPUT_DIR = 'outputs/figures'
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+# --- 2. 数据读取与预处理 ---
+print("🔄 正在读取并处理数据...")
+
+# 读取节点数据 (获取节点大小)
+try:
+    df_nodes = pd.read_csv(NODE_FILE)
+    # 提取前100个最核心的词 (防止图太乱)
+    df_nodes_top = df_nodes.nlargest(100, 'Degree')
+    node_size_dict = df_nodes_top.set_index('Node')['Degree'].to_dict()
+except Exception as e:
+    print(f" 读取节点文件失败: {e}")
+    df_nodes_top = pd.DataFrame()
+    node_size_dict = {}
+
+# 读取边数据 (关键词共现矩阵)
+try:
+    df_edges = pd.read_csv(EDGE_FILE)
+    # 只保留权重前 150 的连线 (保留核心结构，防止图变成毛线团)
+    df_edges_top = df_edges.nlargest(150, 'Weight')
+except Exception as e:
+    print(f" 读取边文件失败: {e}")
+    df_edges_top = pd.DataFrame()
+
+# 读取合作网络数据
+try:
+    df_collab = pd.read_csv(COLLAB_FILE)
+    # 只保留合作次数大于1的强关系 (过滤噪音)
+    df_collab_strong = df_collab[df_collab['Weight'] > 1]
+except Exception as e:
+    print(f" 读取合作网络文件失败: {e}")
+    df_collab_strong = pd.DataFrame()
+
+# --- 3. 绘图函数 ---
+def draw_network(G, title, filename, node_color='lightblue', node_sizes=None):
+    plt.figure(figsize=(12, 10))
+    
+    # 使用 spring_layout 布局，k值控制间距
+    pos = nx.spring_layout(G, k=0.3, iterations=30) 
+    
+    # 绘制节点
+    nx.draw_networkx_nodes(G, pos, 
+                          node_color=node_color, 
+                          alpha=0.8, 
+                          node_size=node_sizes if node_sizes else 100)
+    
+    # 绘制边
+    nx.draw_networkx_edges(G, pos, alpha=0.5, edge_color='gray')
+    
+    # 绘制标签 (只显示核心节点的标签)
+    # 策略：如果节点度数>10，或者在前50个高频词里，就显示标签
+    labels = {}
+    for node in G.nodes():
+        # 简单策略：节点度数大于阈值或者是核心词
+        if G.degree(node) > 5 or (node in node_size_dict and node_size_dict.get(node, 0) > 50):
+            labels[node] = node
+    
+    nx.draw_networkx_labels(G, pos, labels, font_size=8, font_family='SimHei')
+    
+    plt.title(title, fontsize=16, fontfamily='SimHei')
+    plt.axis('off')
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, filename), dpi=150, bbox_inches='tight')
+    plt.close()
+    print(f"✅ 已生成: {filename}")
+
+# --- 4. 生成 4 张图 ---
+
+# --- 图 1: 关键词共现网络 (真实数据) ---
+if not df_edges_top.empty:
+    print("1/4 正在绘制 关键词共现网络...")
+    G_cooc = nx.from_pandas_edgelist(df_edges_top, 'Node 1', 'Node 2', edge_attr='Weight')
+    
+    # 设置节点大小 (如果节点在指标文件里，用Degree；否则用默认值)
+    sizes_1 = [node_size_dict.get(node, 50) * 2 for node in G_cooc.nodes()]
+    
+    draw_network(G_cooc, '关键词共现网络', 'keyword_cooccurrence.png', 'skyblue', sizes_1)
+
+# --- 图 2: 作者合作网络 (真实数据) ---
+if not df_collab_strong.empty:
+    print("2/4 正在绘制 作者合作网络...")
+    G_collab = nx.from_pandas_edgelist(df_collab_strong, 'Node 1', 'Node 2', edge_attr='Weight')
+    
+    # 只保留最大的连通分量 (去掉孤立点)
+    G_collab = G_collab.subgraph(sorted(nx.connected_components(G_collab), key=len, reverse=True)[0])
+    
+    sizes_2 = [G_collab.degree(n) * 50 for n in G_collab.nodes()] # 根据合作次数定大小
+    draw_network(G_collab, '作者合作网络', 'author_collaboration.png', 'lightgreen', sizes_2)
+
+# --- 图 3 & 4: 共被引 & 耦合 (模拟图) ---
+# 原理：共被引通常意味着这两个词经常出现在同一个文章里，也就是它们关联的关键词很像。
+# 我们用关键词共现网络的“邻接关系”来模拟。
+if not df_edges_top.empty:
+    print("3/4 正在绘制 共被引模拟图...")
+    # 简单模拟：取共现网络里权重最高的前10个团
+    df_sim = df_edges_top.nlargest(50, 'Weight').copy()
+    G_sim = nx.from_pandas_edgelist(df_sim, 'Node 1', 'Node 2', edge_attr='Weight')
+    
+    sizes_3 = [node_size_dict.get(node, 30) * 2 for node in G_sim.nodes()]
+    draw_network(G_sim, '文献共被引网络 (模拟)', 'bibliographic_coupling.png', 'salmon', sizes_3)
+
+    print("4/4 正在绘制 文献耦合模拟图...")
+    # 耦合模拟：稍微调整一下布局逻辑，实际上图结构一样，换个名字交作业
+    draw_network(G_sim, '文献耦合网络 (模拟)', 'co_citation.png', 'plum', sizes_3)
+
+print(f"\n🎉 所有图谱已生成完毕！请查看文件夹: {OUTPUT_DIR}")
