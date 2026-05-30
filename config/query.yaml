@@ -17,7 +17,8 @@ query:
   constraint:
     time_window: [2020, 2025]
     doc_type: ["article", "review"]
-
+    database: "Web of Science Core Collection" 
+    language: "English"    
 
 version: "0.2"
 
@@ -34,3 +35,37 @@ query:
   constraint:
     time_window: [2025, 2026]
     doc_type: ["Review Article"]
+    database: "Web of Science Core Collection" 
+    language: "English"    
+    
+version: "0.3" 
+
+query:
+  object:
+    - "Large Language Model*"      # 包含单复数及所有格
+    - "LLM*"                       # 缩写及其变体
+    - "GPT*"                       # Generative Pre-trained Transformer 系列
+    - "Generative AI"              # 生成式人工智能（涵盖 LLM）
+    - "Foundation Model*"          # 基础模型（学术界常用术语）
+
+  method:
+    - "Deep Learning"             # 深度学习
+    - "Transformer*"               # Transformer 架构
+    - "Natural Language Processing" # 自然语言处理 (NLP)
+    - "Neural Network*"            # 神经网络
+    - "Fine-tuning"                # 微调（LLM 应用的关键步骤）
+    - "Prompt Engineering"         # 提示工程
+
+  context:
+    - "Medicine"                   # 医学
+    - "Healthcare"                 # 医疗卫生
+    - "Clinical"                   # 临床
+    - "Diagnosis"                  # 诊断
+    - "Electronic Health Record*"  # 电子健康记录 (EHR)
+    - "Biomedical"                 # 生物医学
+
+  constraint:
+    time_window: [2025, 2026]
+    doc_type: ["Review Article"]
+    database: "Web of Science Core Collection" 
+    language: "English"          
