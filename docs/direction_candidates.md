@@ -9,6 +9,10 @@
 ### 方向2：人工智能在医疗中的应用
 - 关键词：healthcare ai, medical AI
 - 检索式：TS=("healthcare ai" OR "medical AI")
+
+### 方向3：通用医学ai
+- 关键词：Artificial Intelligence, Machine Learning, Deep Learning, Medical AI, Clinical Diagnosis, Smart Healthcare
+- 检索式：TS=("Artificial Intelligence" OR "Machine Learning" OR "Deep Learning" OR "Neural Network*" OR "Natural Language Processing" OR "Computer Vision" OR "Reinforcement Learning" OR "Convolutional Neural Network*" OR "Support Vector Machine*" OR "Random Forest" OR "XGBoost" OR "Transformer" OR "Large Language Model*" OR "LLM") AND TS=(Medicine OR Healthcare OR Clinical OR Diagnosis OR Prognosis OR Treatment OR Patient OR Disease OR Cancer OR Tumor OR Imaging OR Radiology OR Pathology OR "Electronic Health Record*" OR EHR OR "Medical Record*")
 ---
 
 ## 开源项目候选（至少2个）
@@ -18,6 +22,5 @@
 
 ### 项目2：VOSviewer
 - 用途：可视化分析
-
 
 
