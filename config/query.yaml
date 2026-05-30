@@ -65,7 +65,7 @@ query:
     - "Biomedical"                 # 生物医学
 
   constraint:
-    time_window: [2025, 2026]
+    time_window: [2026, 2026]
     doc_type: ["Review Article"]
     database: "Web of Science Core Collection" 
     language: "English"          
