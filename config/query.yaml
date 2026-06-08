@@ -68,4 +68,45 @@ query:
     time_window: [2026, 2026]
     doc_type: ["Review Article"]
     database: "Web of Science Core Collection" 
-    language: "English"          
+    language: "English"  
+    
+version: "0.4" 
+
+object:
+  - "Artificial Intelligence"          # 人工智能
+  - "AI"                               # 缩写
+  - "Large Language Model*"            # 大语言模型（含变体）
+  - "LLM*"                             # 缩写及其变体
+  - "GPT*"                             # 生成式预训练模型
+  - "Generative AI"                    # 生成式人工智能
+  - "Foundation Model*"               # 基础模型（学界常用术语）
+  - "Intelligent System*"              # 智能系统
+  - "Machine Learning"                 # 机器学习
+
+method:
+  - "Deep Learning"                   # 深度学习
+  - "Transformer*"                     # Transformer 架构
+  - "Natural Language Processing"     # 自然语言处理 (NLP)
+  - "Neural Network*"                  # 神经网络
+  - "Fine-tuning"                      # 微调 (LLM 应用关键步骤)
+  - "Prompt Engineering"              # 提示工程
+  - "Educational Data Mining"         # 教育数据挖掘
+  - "Learning Analytics"              # 学习分析
+
+context:
+  - "Education"                        # 教育
+  - "Teaching"                         # 教学
+  - "Classroom"                       # 课堂教学
+  - "Smart Education"                  # 智慧教育
+  - "Online Education"                # 在线教育
+  - "Personalized Learning"           # 个性化学习
+  - "Educational Management"          # 教育管理
+  - "Student Assessment"               # 学情测评
+  - "Educational Technology"           # 教育技术
+  - "E-learning"                      # 电子化学习
+
+constraint:
+  time_window: [2015, 2026]            # 限定时间范围（AI教育发展期）
+  doc_type: ["Review Article", "Article"]  # 限定文献类型
+  database: "Web of Science Core Collection"
+  language: "English"
