@@ -1,0 +1,889 @@
+﻿FN Clarivate Analytics Web of Science
+VR 1.0
+PT J
+AU Han, SY
+   Wang, MY
+   Zhang, JL
+   Li, DD
+   Duan, JH
+AF Han, Songyue
+   Wang, Mingyu
+   Zhang, Jialong
+   Li, Dongdong
+   Duan, Junhong
+TI A Review of Large Language Models: Fundamental Architectures, Key
+   Technological Evolutions, Interdisciplinary Technologies Integration,
+   Optimization and Compression Techniques, Applications, and Challenges
+DE large language models; fundamental architecture; key technologies;
+   optimization methods; interdisciplinary technologies integration; model
+   compression; industry applications; limitations and challenges
+ID ATTENTION
+UT WOS:001386764200001
+ER
+
+PT J
+AU Han, S
+   Cho, H
+   Choi, YK
+   Alexander, GL
+AF Han, Soojeong
+   Cho, Hannah
+   Choi, Yong K.
+   Alexander, Gregory L.
+TI Exploring evaluation measures of large language models for family
+   caregiver use: A scoping review
+DE Large language model; scoping review; generative artificial
+   intelligence; family caregiver; health informatics
+ID READABILITY; COMMUNICATION; INFORMATION; ELIZA
+UT WOS:001693695400001
+ER
+
+PT J
+AU Daungsupawong, H
+   Wiwanitkit, V
+AF Daungsupawong, Hinpetch
+   Wiwanitkit, Viroj
+TI Evaluating Large Language Models-Generated Health Education Materials
+   for Discharged Patients With Diabetes
+DE large language model; education; diabetes
+UT WOS:001744057900001
+ER
+
+PT J
+AU Shah, RM
+   Schwab, JH
+AF Shah, Romil
+   Schwab, Joseph H.
+TI Large Language Models in Spine Surgery: A Promising Technology
+DE large language models; machine learning; artificial intelligence; spine
+   surgery; natural language processing; orthopedic surgery; technology
+   integration
+ID SURVEILLANCE; ACCURACY; QUALITY; CHATGPT
+UT WOS:001499100100001
+ER
+
+PT J
+AU Saleh, Y
+   Abu Talib, M
+   Nasir, Q
+   Dakalbab, F
+AF Saleh, Yasmeen
+   Abu Talib, Manar
+   Nasir, Qassim
+   Dakalbab, Fatima
+TI Evaluating large language models: a systematic review of efficiency,
+   applications, and future directions
+DE large language models; LLMS; efficiency; performance; application
+UT WOS:001505398100001
+ER
+
+PT J
+AU Ding, ZY
+   Wei, R
+   Xia, JN
+   Mu, YH
+   Wang, JH
+   Lin, YY
+AF Ding, Zheyu
+   Wei, Rong
+   Xia, Jianing
+   Mu, Yonghao
+   Wang, Jiahuan
+   Lin, Yingying
+TI Exploring the potential of large language model-based chatbots in
+   challenges of ribosome profiling data analysis: a review
+DE large language models; chatbots; next-generation sequencing; ribosome
+   profiling; data analysis
+ID MESSENGER-RNA TRANSLATION; IN-VIVO; REVEALS; DYNAMICS; CHATGPT
+UT WOS:001375834200001
+ER
+
+PT J
+AU Gao, C
+   Lan, XC
+   Li, N
+   Yuan, Y
+   Ding, JT
+   Zhou, ZL
+   Xu, FL
+   Li, Y
+AF Gao, Chen
+   Lan, Xiaochong
+   Li, Nian
+   Yuan, Yuan
+   Ding, Jingtao
+   Zhou, Zhilun
+   Xu, Fengli
+   Li, Yong
+TI Large language models empowered agent-based modeling and simulation: a
+   survey and perspectives
+ID URBAN; BEHAVIOR; SYSTEMS; IMPACT; DECISIONS; SECURITY; PROGRESS; HEALTH
+UT WOS:001321854500022
+ER
+
+PT J
+AU Wunsch, DC III
+   Hier, DB
+AF Wunsch III, Donald C.
+   Hier, Daniel B.
+TI Large language models for neurology: a mini review
+DE ambient documentation; digital twins; documentation burden; ethical AI;
+   large language models; multimodal AI; neurology; precision neurology
+ID ARTIFICIAL-INTELLIGENCE; CAREER SATISFACTION; US NEUROLOGISTS; BURNOUT
+UT WOS:001664845200001
+ER
+
+PT J
+AU Liu, XY
+   Zhang, J
+   Wang, XR
+   Teng, MD
+   Wang, GY
+   Zhou, XM
+AF Liu, Xinyu
+   Zhang, Jia
+   Wang, Xiaoran
+   Teng, Maoda
+   Wang, Guoying
+   Zhou, Xiaoming
+TI Application of artificial intelligence large language models in drug
+   target discovery
+DE large language model; drug target discovery; bioinformatics; multi-omics
+   integration; protein structure prediction
+ID PREDICTION
+UT WOS:001533358200001
+ER
+
+PT J
+AU Nam, Y
+   Kim, DY
+   Kyung, S
+   Seo, J
+   Song, JM
+   Kwon, J
+   Kim, J
+   Jo, W
+   Park, H
+   Sung, J
+   Park, S
+   Kwon, H
+   Kwon, T
+   Kim, K
+   Kim, N
+AF Nam, Yoojin
+   Kim, Dong Yeong
+   Kyung, Sunggu
+   Seo, Jinyoung
+   Song, Jeong Min
+   Kwon, Jimin
+   Kim, Jihyun
+   Jo, Wooyoung
+   Park, Hyungbin
+   Sung, Jimin
+   Park, Sangah
+   Kwon, Heeyeon
+   Kwon, Taehee
+   Kim, Kanghyun
+   Kim, Namkug
+TI Multimodal Large Language Models in Medical Imaging: Current State and
+   Future Directions
+DE Artificial intelligence; Large language model; Medical imaging;
+   Multimodal large language model
+ID FOUNDATION MODELS
+UT WOS:001586892100001
+ER
+
+PT J
+AU Xue, C
+   Bai, JX
+   Zhang, WR
+   Wang, YW
+   Guo, YF
+   Yu, JL
+   Zhu, J
+AF Xue, Chao
+   Bai, Jiaxin
+   Zhang, Wenrui
+   Wang, Yiwen
+   Guo, Yufei
+   Yu, Jiali
+   Zhu, Jian
+TI Performance evaluation of large language models in answering patients'
+   questions about treatment of connective tissue diseases
+DE connective tissue diseases; large language models; patient education;
+   quality assessment; readability
+UT WOS:001708714900001
+ER
+
+PT J
+AU Gosak, L
+   SDtiglic, G
+   Tam, WWS
+   Vrbnjak, D
+AF Gosak, Lucija
+   Sdtiglic, Gregor
+   Tam, Wilson Wai San
+   Vrbnjak, Dominika
+TI Human-led and artificial intelligence-automated critical appraisal of
+   systematic reviews: Comparative evaluation
+DE Artificial intelligence in healthcare; Multimodal large language models;
+   Nursing; Evidence-based practice
+ID MEDICATION ADMINISTRATION ERRORS; INTERVENTIONS; TOOLS
+UT WOS:001614213300003
+ER
+
+PT J
+AU Suram, P
+   Banik, D
+   Sharma, AK
+AF Suram, Priyanka
+   Banik, Debajyoty
+   Sharma, Arpit Kumar
+TI Large language model based machine translation for universal
+   multilingual understanding and translation quality enhancement
+DE Machine translation; Large language models; Transformer architecture;
+   Multi-modal machine translation
+UT WOS:001743616800001
+ER
+
+PT J
+AU Jing, F
+   Zhang, YJ
+   Gao, M
+   Zhang, XT
+   Zhou, HZ
+AF Jing, Feng
+   Zhang, Yujing
+   Gao, Mei
+   Zhang, Xiongtao
+   Zhou, Huaizhe
+TI A Review of Federated Large Language Models for Industry 4.0
+DE industry 4.0; large language model; federated learning
+UT WOS:001701369000001
+ER
+
+PT J
+AU Emil, RS
+   Remus, B
+AF Emil, Repede Stefan
+   Remus, Brad
+TI A Review of Automatic Fake News Detection: From Traditional Methods to
+   Large Language Models
+DE fake news detection; large language models; machine learning; deep
+   learning; fact-checking; misinformation; social media; text
+   classification; multimodal analysis; transformer models
+UT WOS:001602061700001
+ER
+
+PT J
+AU Yin, SK
+   Fu, CY
+   Zhao, SR
+   Li, K
+   Sun, X
+   Xu, T
+   Chen, EH
+AF Yin, Shukang
+   Fu, Chaoyou
+   Zhao, Sirui
+   Li, Ke
+   Sun, Xing
+   Xu, Tong
+   Chen, Enhong
+TI A survey on multimodal large language models
+DE multimodal large language model; vision language model; large language
+   model
+UT WOS:001377096600001
+ER
+
+PT J
+AU Moenks, N
+   Penava, P
+   Buettner, R
+AF Moenks, Norbert
+   Penava, Pascal
+   Buettner, Ricardo
+TI A Systematic Literature Review of Large Language Model Applications in
+   Industry
+DE Large language model; LLM use cases; LLM application; LLM application;
+   industry; industry; systematic literature review; systematic literature
+   review; porter value chain; porter value chain; porter value chain
+ID FRAMEWORK
+UT WOS:001574191400038
+ER
+
+PT J
+AU Ding, L
+   O'Berry, R
+   Tallent, H
+   Chhetri, GCSG
+   Gapud, A
+AF Ding, Lu
+   O'Berry, Robert
+   Tallent, Hunter
+   Chhetri, G. C. Sanju Gharti
+   Gapud, Albert
+TI Learning with large language models: beyond prompt engineering (feb,
+   10.1007/s10639-026-13924-2, 2026)
+UT WOS:001739695600001
+ER
+
+PT J
+AU Zhang, JT
+   Song, XX
+   Tian, BC
+   Tian, MK
+   Zhang, ZC
+   Wang, J
+   Fan, T
+AF Zhang, Jiatong
+   Song, Xiaoxi
+   Tian, Bocheng
+   Tian, Mingke
+   Zhang, Zhichang
+   Wang, Jing
+   Fan, Ting
+TI Large language models in the management of chronic ocular diseases: a
+   scoping review
+DE large language models; chronic ocular diseases; multimodal data;
+   clinical decision support; full process management
+ID CHATGPT; PERFORMANCE; GLAUCOMA
+UT WOS:001521117000001
+ER
+
+PT J
+AU Shen, E
+   Hamati, F
+   Donohue, MR
+   Girgis, RR
+   Veenstra-VanderWeele, J
+   Jutla, A
+AF Shen, Elaine
+   Hamati, Fadi
+   Donohue, Meghan Rose
+   Girgis, Ragy R.
+   Veenstra-Vanderweele, Jeremy
+   Jutla, Amandeep
+TI Evaluation of Large Language Model Chatbot Responses to Psychotic
+   Prompts
+UT WOS:001725353700001
+ER
+
+PT J
+AU Caffery, LJ
+   Taylor, ML
+   Abbott, LM
+   Janda, M
+   Guitera, P
+   Mar, V
+   Arnold, C
+   Shumack, S
+   Caccetta, T
+   Miller, R
+   Soyer, HP
+AF Caffery, Liam J.
+   Taylor, Monica L.
+   Abbott, Lisa M.
+   Janda, Monika
+   Guitera, Pascale
+   Mar, Victoria
+   Arnold, Chris
+   Shumack, Stephen
+   Caccetta, Tony
+   Miller, Robert
+   Soyer, H. Peter
+TI Informing a Position Statement on the Use of Large Language Models and
+   AI Scribes in Dermatology in Australia
+DE artificial intelligence; dermatology; guidelines; large language models;
+   machine learning; position statement
+UT WOS:001530913600001
+ER
+
+PT J
+AU Nguyen, D
+AF Nguyen, Dong
+TI Collaborative Growth: When Large Language Models Meet Sociolinguistics
+DE language variation; large language models; LLMs; natural language
+   processing; NLP; sociolinguistics
+ID RACIAL DISPARITIES; SPEECH; TRANSMISSION; DIALECT
+UT WOS:001411727500001
+ER
+
+PT J
+AU Peters, U
+   Bertazzoli, A
+   DeJesus, JM
+   van der Velden, GJ
+   Chin-Yee, B
+AF Peters, Uwe
+   Bertazzoli, Andrea
+   DeJesus, Jasmine M.
+   van der Velden, Gisela J.
+   Chin-Yee, Benjamin
+TI Generics in science communication: Misaligned interpretations across
+   laypeople, scientists, and large language models
+DE ChatGPT; generics; laypeople; science communication; scientists
+ID EXPERTS
+UT WOS:001743792700001
+ER
+
+PT J
+AU Awalurahman, HW
+   Aji, RF
+   Budi, I
+AF Awalurahman, Halim Wildan
+   Aji, Rizal Fathoni
+   Budi, Indra
+TI Transformer and Large Language Models for Automatic Multiple-Choice
+   Question Generation: A Systematic Literature Review
+DE Transformers; Question generation; Systematic literature review; Large
+   language models; Deep learning; Data models; Databases; Planning;
+   Quality assessment; Libraries; Transformer; large language models;
+   multiple-choice question generation; systematic literature review
+UT WOS:001537202100041
+ER
+
+PT J
+AU Tordjman, M
+   Bolger, I
+   Yuce, M
+   Restrepo, F
+   Liu, ZL
+   Dercle, L
+   McGale, J
+   Meribout, AL
+   Liu, MM
+   Beddok, A
+   Lee, HC
+   Rohren, S
+   Yu, RY
+   Mei, XY
+   Taouli, B
+AF Tordjman, Mickael
+   Bolger, Ian
+   Yuce, Murat
+   Restrepo, Francisco
+   Liu, Zelong
+   Dercle, Laurent
+   McGale, Jeremy
+   Meribout, Anis L.
+   Liu, Mira M.
+   Beddok, Arnaud
+   Lee, Hao-Chih
+   Rohren, Scott
+   Yu, Ryan
+   Mei, Xueyan
+   Taouli, Bachir
+TI Large Language Models in Cancer Imaging: Applications and Future
+   Perspectives
+DE large language model; artificial intelligence; imaging; cancer
+UT WOS:001496657800001
+ER
+
+PT J
+AU Elkins, K
+AF Elkins, Katherine
+TI A(I) University in Ruins: What Remains in a World with Large Language
+   Models?
+UT WOS:001331174100001
+ER
+
+PT J
+AU Nelson, J
+   Baimagambetov, A
+   Avgerinakis, K
+   Polatidis, N
+AF Nelson, Jordan
+   Baimagambetov, Almas
+   Avgerinakis, Konstantinos
+   Polatidis, Nikolaos
+TI Ethical AI prompt recommendations in large language models using
+   collaborative filtering
+DE Large language models; prompts; recommender systems; prompt
+   recommendations; Ethical AI
+UT WOS:001593320200001
+ER
+
+PT J
+AU Anibal, JT
+   Huth, HB
+   Gunkel, J
+   Gregurick, SK
+   Wood, BJ
+AF Anibal, James T.
+   Huth, Hannah B.
+   Gunkel, Jasmine
+   Gregurick, Susan K.
+   Wood, Bradford J.
+TI Simulated misuse of large language models and clinical credit systems
+ID ARTIFICIAL-INTELLIGENCE
+UT WOS:001352389600001
+ER
+
+PT J
+AU Miura, A
+   Komori, M
+   Tanaka, S
+AF Miura, Asako
+   Komori, Masashi
+   Tanaka, Sho
+TI Generative AI for Social Interaction Analysis: A Study of COVID-19 Video
+   Comment Threads
+DE generative artificial intelligence (AI); large language model;
+   interaction process analysis; video comment analysis; COVID-19
+UT WOS:001551815900001
+ER
+
+PT J
+AU Harrison, JR
+   Tang, SL
+   Burston, B
+   Robertson, A
+   Liang, HZ
+   Taylor, JP
+AF Harrison, Judith Rose
+   Tang, Song Ling
+   Burston, Bede
+   Robertson, Alexander
+   Liang, Huizhi
+   Taylor, John Paul
+TI Large Language Models: A Paradigm Shift for Dementia Diagnosis and Care
+DE dementia; large language models; diagnosis; patient care; artificial
+   intelligence
+UT WOS:001610173700001
+ER
+
+PT J
+AU Cai, LY
+   Yu, CJ
+   Kang, YQ
+   Fu, Y
+   Zhang, H
+   Zhao, Y
+AF Cai, Linyue
+   Yu, Chaojia
+   Kang, Yongqi
+   Fu, Yu
+   Zhang, Heng
+   Zhao, Yong
+TI Practices, opportunities and challenges in the fusion of knowledge
+   graphs and large language models
+DE large language model; knowledge graph; KEL; LEK; LKC
+UT WOS:001539046500001
+ER
+
+PT J
+AU Zhang, C
+   Chen, JX
+   Li, JT
+   Peng, YH
+   Mao, ZB
+AF Zhang, Ceng
+   Chen, Junxin
+   Li, Jiatong
+   Peng, Yanhong
+   Mao, Zebing
+TI Large language models for human-robot interaction: A review
+DE Large language models; Human-robot interaction; Task completion;
+   Considerations and challenges
+UT WOS:001354419300003
+ER
+
+PT J
+AU Woo, BFY
+   Cato, K
+   Cho, H
+   Bin You, S
+   Song, J
+AF Woo, Brigitte Fong Yeong
+   Cato, Kenrick
+   Cho, Hannah
+   Bin You, Sang
+   Song, Jiyoun
+TI The use of large language models in clinical documentation: A scoping
+   review
+DE Large language models; Electronic health records; Artificial
+   intelligence; Documentation
+ID BURDEN; CARE
+UT WOS:001667958300001
+ER
+
+PT J
+AU Lam, CM
+AF Lam, Chi-Ming
+TI Confucian Self-Cultivation and the Ethics of Learning with Large
+   Language Models
+DE Confucian ethics; Large language models; Moral education; Artificial
+   intelligence; Self-cultivation
+UT WOS:001697017000001
+ER
+
+PT J
+AU Ma, J
+   Liu, J
+   Xu, DY
+   Song, XY
+   Zhang, ZC
+AF Ma, Jin
+   Liu, Jia
+   Xu, Dongyu
+   Song, Xiaoyu
+   Zhang, Zhichang
+TI Application and Prospects of Large Language Models in Small-Molecule
+   Drug Discovery
+ID COMPUTATIONAL CHEMISTRY; TRANSFORMER; KNOWLEDGE; PREDICTION; BERT
+UT WOS:001636342700001
+ER
+
+PT J
+AU Lu, WZ
+   Zhang, J
+   Fan, J
+   Fu, ZH
+   Chen, YG
+   Du, XY
+AF Lu, Weizheng
+   Zhang, Jing
+   Fan, Ju
+   Fu, Zihao
+   Chen, Yueguo
+   Du, Xiaoyong
+TI Large language model for table processing: a survey
+DE data mining and knowledge discovery; table processing; large language
+   model
+ID NATURAL-LANGUAGE; SQL; REPRESENTATION; BENCHMARK
+UT WOS:001395405600001
+ER
+
+PT J
+AU Chakraborty, C
+   Pal, S
+   Bhattacharya, M
+   Dash, S
+   Lee, SS
+AF Chakraborty, Chiranjib
+   Pal, Soumen
+   Bhattacharya, Manojit
+   Dash, Snehasish
+   Lee, Sang-Soo
+TI Overview of Chatbots with special emphasis on artificial
+   intelligence-enabled ChatGPT in medical science
+DE ChatGPT; Chatbot; medical use; large language models; AI
+ID PERFORMANCE; GPT-4
+UT WOS:001101628500001
+ER
+
+PT J
+AU Luo, X
+   Tang, C
+   Chen, JJ
+   Yuan, J
+   Huang, JJ
+   Yan, T
+AF Luo, Xiao
+   Tang, Cheng
+   Chen, Jin-Jin
+   Yuan, Jin
+   Huang, Jin-Jin
+   Yan, Tao
+TI Comment on: "Benchmarking the performance of large language models in
+   uveitis: a comparative analysis of ChatGPT-3.5, ChatGPT-4.0, Google
+   Gemini, and Anthropic Claude3"
+UT WOS:001433379800001
+ER
+
+PT J
+AU Tran, M
+   Balasooriya, C
+   Jonnagaddala, J
+   Leung, GKK
+   Mahboobani, N
+   Ramani, S
+   Rhee, J
+   Schuwirth, L
+   Najafzadeh-Tabrizi, NS
+   Semmler, C
+   Wong, ZS
+AF Tran, Michael
+   Balasooriya, Chinthaka
+   Jonnagaddala, Jitendra
+   Leung, Gilberto Ka-Kit
+   Mahboobani, Neeraj
+   Ramani, Subha
+   Rhee, Joel
+   Schuwirth, Lambert
+   Najafzadeh-Tabrizi, Neysan Sedaghat
+   Semmler, Carolyn
+   Wong, Zoie S. Y.
+TI Situating governance and regulatory concerns for generative artificial
+   intelligence and large language models in medical education
+UT WOS:001497735200002
+ER
+
+PT J
+AU Kim, S
+   Lee, CK
+   Kim, SS
+AF Kim, Sunkyu
+   Lee, Choong-kun
+   Kim, Seung-seob
+TI Large Language Models: A Comprehensive Guide for Radiologists
+DE Natural Language Processing; Large Language Model; Transformer;
+   Radiology; Chatbot; ChatGPT
+UT WOS:001346654900004
+ER
+
+PT J
+AU Egli, A
+AF Egli, Adrian
+TI ChatGPT, GPT-4, and Other Large Language Models: The Next Revolution for
+   Clinical Microbiology?
+DE chatGPT; large language model; artificial intelligence; chatbot;
+   digitalization
+UT WOS:001186676300003
+ER
+
+PT J
+AU Arvisais-Anhalt, S
+   Gonias, SL
+   Murray, SG
+AF Arvisais-Anhalt, Simone
+   Gonias, Steven L.
+   Murray, Sara G.
+TI Establishing priorities for implementation of large language models in
+   pathology and laboratory medicine
+DE Artificial intelligence; GPT; Large language models (LLMs)
+UT WOS:001155187900001
+ER
+
+PT J
+AU Boonstra, MJ
+   Weissenbacher, D
+   Moore, JH
+   Gonzalez-Hernandez, G
+   Asselbergs, FW
+AF Boonstra, Machteld
+   Weissenbacher, Davy
+   Moore, Jason
+   Gonzalez-Hernandez, Graciela
+   Asselbergs, Folkert
+TI Artificial intelligence: revolutionizing cardiology with large language
+   models
+DE Large language models; Natural language processing; Cardiology; Clinical
+   applications
+ID INFORMATION; PASTE; COPY
+UT WOS:001135440400001
+ER
+
+PT J
+AU Qin, LB
+   Chen, QG
+   Zhou, YH
+   Chen, Z
+   Li, YH
+   Liao, LZ
+   Li, M
+   Che, WX
+   Yu, PS
+AF Qin, Libo
+   Chen, Qiguang
+   Zhou, Yuhang
+   Chen, Zhi
+   Li, Yinghui
+   Liao, Lizi
+   Li, Min
+   Che, Wanxiang
+   Yu, Philip S.
+TI A survey of multilingual large language models
+ID BENCHMARK; TRANSLATION; GENERATION; DATASET
+UT WOS:001397579900001
+ER
+
+PT J
+AU Cai, GY
+   Tian, RM
+   Yang, L
+   Jia, YZ
+   Li, LK
+   Wang, JL
+AF Cai, Guanyu
+   Tian, Ruiming
+   Yang, Lang
+   Jia, Yunzhe
+   Li, Lingkun
+   Wang, Jiliang
+TI Efficient Inference for Edge Large Language Models: A Survey
+DE large language models (LLMs); edge computing; on-device; speculative
+   decoding; model offloading
+UT WOS:001687113000001
+ER
+
+PT J
+AU Manda, P
+AF Manda, Prashanti
+TI Large Language Models in Bio-Ontology Research: A Review
+DE large language models; artificial intelligence; biological ontology;
+   ontology mapping; knowledge graphs; semantic search; text mining;
+   human-in-the-loop curation
+UT WOS:001624080500001
+ER
+
+PT J
+AU Tyler, C
+   Akerlof, KL
+   Allegra, A
+   Arnold, Z
+   Canino, H
+   Doornenbal, MA
+   Goldstein, JA
+   Pedersen, DB
+   Sutherland, WJ
+AF Tyler, Chris
+   Akerlof, K. L.
+   Allegra, Alessandro
+   Arnold, Zachary
+   Canino, Henriette
+   Doornenbal, Marius A.
+   Goldstein, Josh A.
+   Pedersen, David Budtz
+   Sutherland, William J.
+TI AI tools as science policy advisers? The potential and the pitfalls
+DE Machine learning; Policy; Computer science; Government
+UT WOS:001080913200006
+ER
+
+PT J
+AU Abou-Bakr, A
+   Hassanein, FEA
+AF Abou-bakr, Asmaa
+   Hassanein, Fatma E. A.
+TI Comment on "Diagnostic Performance of Multimodal Large Language Models
+   in the Analysis of Oral Pathology"
+DE ChatGPT-4o; diagnostic accuracy; oral medicine; oral pathology; prompt
+UT WOS:001669474300001
+ER
+
+PT J
+AU Faustinella, F
+   Nguyen, H
+   Liaw, W
+AF Faustinella, Fabrizia
+   Nguyen, Hien
+   Liaw, Winston
+TI The relevance of clinical skills in an era of large language models: an
+   adrenal insufficiency case study
+ID TIME PRESSURE; CARE
+UT WOS:001465903700001
+ER
+
+PT J
+AU Glass, J
+   Elemento, O
+AF Glass, Jacob
+   Elemento, Olivier
+TI The power and perils of large language models in haematology
+DE bioethics; clinical trials; haematology; large language models
+UT WOS:001321333100001
+ER
+
+EF
