@@ -28,12 +28,12 @@
 ## 📊 数据来源
 本项目数据主要来源于学术数据库（如 Web of Science / Google Scholar），通过关键词检索获取相关文献。
 
-示例检索关键词：
-"artificial intelligence" OR "machine learning" OR "deep learning"
+
 ---
 
 ## 🧱 项目结构
 data/      存放原始文献数据
+config/    存放检索式
 src/       存放数据处理与分析代码
 outputs/   存放分析结果（图表、网络图等）
 reports/   存放分析报告与过程说明
