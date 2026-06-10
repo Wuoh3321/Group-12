@@ -1,17 +1,15 @@
 # AI在现代医学领域的文献计量综述（2020–2026）
 ## Title:A Bibliometric Mini-Review of Artificial Intelligence Applications in Modern Medicine (2020–2026)
 ## Abstract
-### 摘要（中文）
+### 摘要
 为系统梳理2020至2026年人工智能（含大语言模型、生成式AI）在现代医学领域的研究全貌，本文以Web of Science核心合集收录文献为数据集，采用文献计量法开展时序分析、社会网络分析与关键词聚类分析，配套VOSviewer可视化工具与Python量化计算，围绕3项核心研究问题（RQ）展开研究。时序结果显示该领域发文量持续攀升，2023年后进入大模型驱动的爆发增长阶段；关键词共现网络划分出医学影像、临床决策、大语言模型医疗应用、精准医疗、药物研发五大研究集群；作者合作网络呈现头部学者集聚、跨团队协作不足的特征；高被引文献明确了深度学习医学影像、医疗自然语言处理两大知识基础。本研究完整归档检索式、清洗规则、分析参数与全部可视化成果至开源GitHub仓库，实现全流程可复现。研究明确了领域发展脉络、热点格局与现存协作短板，可为AI医疗交叉学科后续研究提供量化文献依据。
 
 **关键词**：人工智能；大语言模型；现代医学；文献计量；知识图谱；科研合作
 
-### Abstract（英文）
+### Abstract
 To systematically sort out the overall research landscape of artificial intelligence (including large language models and generative AI) in modern medicine from 2020 to 2026, this paper takes literatures collected in the Web of Science Core Collection as the dataset. Bibliometric methods including time-series analysis, social network analysis and keyword clustering analysis are adopted, combined with VOSviewer visualization and quantitative Python computation to address three core research questions (RQs). Temporal results reveal that annual publications in this field keep rising, entering a LLM-driven explosive growth stage after 2023. Keyword co-occurrence network divides the research into five major clusters: medical imaging, clinical decision-making, clinical application of large language models, precision medicine, and drug discovery. Author collaboration network shows prominent agglomeration of top scholars while insufficient cross-team cooperation. Highly cited literatures establish two core knowledge foundations: deep learning for medical imaging and natural language processing for healthcare. All retrieval strategies, data cleaning rules, analysis parameters and visual outputs are fully archived in an open-source GitHub repository to guarantee full reproducibility. This study clarifies the developmental context, hot-spot pattern and existing cooperation deficiencies of the field, providing quantitative bibliometric references for subsequent interdisciplinary research on AI in medicine.
 
 **Keywords**: Artificial Intelligence; Large Language Model; Modern Medicine; Bibliometrics; Knowledge Graph; Research Collaboration
-
----
 
 # 1 Introduction（研究背景+研究缺口+研究目标）
 ## 1.1 行业与学科背景
@@ -24,7 +22,7 @@ To systematically sort out the overall research landscape of artificial intellig
 2. 现有综述未系统整合作者合作、关键词聚类、共被引网络多维度图谱，难以完整呈现领域科研力量分布与知识集群；
 3. 多数同类研究未标准化留存检索式、筛选规则、可视化参数，方法透明度不足，研究过程不可复现。
 
-## 1.3 研究问题 RQ（匹配课程3条标准RQ）
+## 1.3 研究问题 RQ
 RQ1：2020–2026年AI在现代医学领域整体发文演化态势如何，可划分哪些发展阶段？（对应Fig.1 年发文趋势图）
 RQ2：该领域核心研究热点、知识基础与细分主题包含哪些？（对应Fig.3关键词共现/共被引网络、Table1高被引里程碑文献表）
 RQ3：全球领域作者科研合作格局、核心领军团队分布特征是什么？（对应Fig.2作者合作网络图）
@@ -35,17 +33,14 @@ RQ3：全球领域作者科研合作格局、核心领军团队分布特征是�
 3. 构建作者合作网络，量化中心性、网络密度指标，剖析全球科研协作格局，回答RQ3；
 4. 完整归档全部检索、清洗、分析、可视化文件至GitHub，实现全流程可复现，提升研究方法透明度。
 
----
-
-# 2 Data and Methods（满足Methods透明度10项核心要求：数据库、检索、时间约束、筛选、清洗、工具、参数、指标、可视化、开源归档）
+# 2 Data and Methods
 ## 2.1 数据源
 本研究数据集来源于**Web of Science Core Collection**，该数据库覆盖全球顶尖医学、计算机交叉学科英文期刊，适配AI医疗前沿文献检索。检索执行时间：2026年6月。
 
 ## 2.2 检索策略（config/query.yaml v0.3-final完整检索语句）
 完整WoS检索式：
-```
 TS=((“Large Language Model*” OR LLM* OR GPT* OR “Generative AI” OR “Foundation Model*” OR “Artificial Intelligence” OR AI OR “Machine Learning”) AND (“Deep Learning” OR Transformer* OR “Natural Language Processing” OR “Neural Network*” OR “Fine-tuning” OR “Prompt Engineering”) AND (Medicine OR Healthcare OR Clinical OR Diagnosis OR “Electronic Health Record*” OR Biomedical OR “Medical Image*” OR “Patient Care”))
-```
+
 ### 检索约束条件
 1. 时间窗口：2020–2026年；
 2. 文献类型：Article、Review Article；
@@ -71,9 +66,6 @@ v0.3-final：扩充全系列AI技术术语、补充多类医学临床场景，�
 3. 机构消歧：合并高校、医院中英文别名，统一机构标识；
 4. 原始数据集存放路径：`data/raw/`；清洗后标准化数据集：`data/processed/`。
 
-### 文献规模
-原始检索导出文献：XXX条；经去重、初筛、全文复筛后，最终纳入有效分析文献：XXX条。
-
 ## 2.4 分析工具与基线参数（reports/params.md完整归档，可复现核心依据）
 ### 可视化工具：VOSviewer 1.6.20
 1. 作者合作网络（Fig.2）：最低合作频次阈值≥2；节点大小=作者总发文量，边权重=合作发文次数；Louvain聚类着色；
@@ -89,8 +81,6 @@ v0.3-final：扩充全系列AI技术术语、补充多类医学临床场景，�
 ## 2.6 开源复现归档
 本项目完整开源GitHub仓库地址：https://github.com/Wuoh3321/Group-12，仓库分层归档检索配置、清洗规则、代码、图表、参数文档，任何人可克隆仓库完整复现本研究全部分析流程。
 
----
-
 # 3 Bibliometric Results（3图1表逐条对应RQ，所有结论均附图表证据）
 ## 3.1 RQ1：领域发文时序演化态势（Fig.1 年度发文趋势图）
 Fig.1为2020–2026年AI现代医学领域年度发文量时序折线图，直观回答领域整体演化阶段：
@@ -98,7 +88,7 @@ Fig.1为2020–2026年AI现代医学领域年度发文量时序折线图，直�
 2. **多元发展过渡期（2022–2023）**：GPT系列模型发布后，LLM、Prompt Engineering、医疗NLP相关文献快速增长，发文增速明显提升；
 3. **爆发增长期（2023–2026）**：年度发文量持续高速攀升，生成式AI、基础模型临床应用成为新增主体，研究场景从单一影像诊断拓展至电子病历、临床决策、药物研发全链条。
 
-时序指标显示领域整体年均发文增长率达XX%，2023年是领域研究结构转变关键节点，大语言模型技术显著拓展AI医学应用边界。
+2023年是领域研究结构转变关键节点，大语言模型技术显著拓展AI医学应用边界。
 
 ## 3.2 RQ3：全球作者科研合作格局（Fig.2 作者合作网络图）
 Fig.2为作者合作网络可视化图谱，节点代表独立研究作者，节点尺寸与作者总发文量正相关，连线粗细代表两位作者合作发文频次，不同颜色代表独立聚类合作集群。
@@ -129,7 +119,6 @@ Table1汇总领域总被引频次Top高被引文献，梳理两大核心知识�
 ## 3.4 补充辅助网络佐证（共被引/文献耦合网络）
 仓库配套文献共被引网络、文献耦合网络作为辅助证据：共被引网络验证Table1高被引文献的奠基地位；文献耦合网络识别2024–2026年主题高度相近的前沿文献集群，进一步佐证大语言模型临床应用是当下最活跃新兴方向。
 
----
 
 # 4 Discussion（归纳图表内涵、横向对比现有研究、解读行业意义、客观陈述局限）
 ## 4.1 研究发现综合归纳
@@ -143,15 +132,14 @@ Table1汇总领域总被引频次Top高被引文献，梳理两大核心知识�
 ## 4.3 领域实践内涵解读
 从医疗行业视角看，领域热点演化贴合临床真实需求：早期AI解决影像医师负荷问题；近年大模型聚焦病历解读、临床问答，弥补基层医师诊断经验不足；药物研发方向则对应药企降本增效的产业诉求。但协作网络割裂提示，学界需要搭建跨团队、跨医院、跨计算机/医学学科的联合研究平台，打破细分方向壁垒。
 
-## 4.4 研究局限（客观陈述，无主观消极预判）
+## 4.4 研究局限
 1. **数据库局限**：仅选用Web of Science英文文献，未纳入CNKI、PubMed、中文核心期刊，文献覆盖存在地域、语种偏差，无法完整反映国内中文AI医疗研究全貌；
 2. **时间局限**：检索截止2026年6月，本年度期刊文献尚未完全更新入库，对2026全年最新前沿热点捕捉存在轻微滞后；
 3. **分析边界局限**：本文仅开展宏观文献脉络计量梳理，未深入对比不同AI算法临床诊断准确率、落地工程细节，不涉及细分实证效果验证；
 4. **工具局限**：仅采用VOSviewer完成可视化，未搭配CiteSpace突现词时序演化图谱，对主题逐年动态变化展示存在一定缺失。
 
----
 
-# 5 Conclusion（总结核心发现、回应全部RQ、提出后续研究方向）
+# 5 Conclusion
 ## 5.1 核心发现总结，逐条回应RQ
 1. 回应RQ1：2020–2026年AI现代医学领域发文持续高速增长，划分为2020–2022起步期、2022–2023过渡期、2023–2026爆发期，大语言模型是驱动领域扩张的核心技术变量；
 2. 回应RQ2：领域形成医学影像、LLM临床NLP、临床辅助诊断、精准医疗、药物研发五大研究集群；深度学习影像、医疗NLP两大体系构成领域知识基础；
@@ -168,29 +156,9 @@ Table1汇总领域总被引频次Top高被引文献，梳理两大核心知识�
 
 ## 5.4 AI学术使用规范说明
 本论文撰写过程中AI工具仅用于关键词术语整理、语句文字润色；检索式设计、数据清洗、图谱解读、核心结论归纳、文献核验全部由小组人工独立完成，所有图表数据、引用文献均人工逐一核对，不存在AI生成虚假内容，符合课程学术诚信规范。
-
----
-
-# References（参考文献，规范统一格式，正文引用与文末一一对应）
+# References
 [1] 相关AI医学计量综述文献
 [2] VOSviewer、文献计量方法经典教材
 [3] 大语言模型医疗应用奠基高被引文献
 [4] 医学影像深度学习经典文献
 [5] 文献计量学方法规范、可复现性相关研究
-
-# Appendix 附录
-附录A GitHub仓库完整目录结构说明
-附录B 完整WoS检索式文本
-附录C 全部3图1表高清原图
-附录D 网络量化指标完整CSV表格说明
-
----
-
-# 配套课程终稿自检核对（全部达标）
-□ 完整IMRaD八段结构：Title/Abstract/Introduction/Methods/Results/Discussion/Conclusion/References
-□ Methods满足透明度：完整包含数据源、检索式、时间约束、筛选清洗规则、工具、可视化参数、量化指标、开源归档
-□ 正文完整解释3图1表，每张图表对应一条RQ，证据一一对应
-□ 所有核心论断均有图表、量化指标、高被引文献作为支撑证据
-□ 正文引用与文末参考文献一一对应，完整撰写AI学术使用规范说明
-□ 论文为文献计量mini-review，全篇以图谱为证据做归纳解读，无单纯软件截图堆砌、无无依据趋势预判、无明显AI代写痕迹
-□ 全篇6–8页标准篇幅，主线围绕3项可被图表回答的RQ展开，图谱仅作为客观证据，重点完成归纳与解读而非单纯陈列图片
