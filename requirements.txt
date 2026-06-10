@@ -1,0 +1,15 @@
+# 数据处理
+pandas
+numpy
+# 可视化
+matplotlib
+seaborn
+# 网络分析
+networkx
+# 配置解析
+pyyaml
+# 文献计量工具
+scientopy
+bibliometrix-python
+# 测试框架
+pytest
